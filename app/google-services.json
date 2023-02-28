@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "911618316381",
+    "project_id": "smadhaan-62e08",
+    "storage_bucket": "smadhaan-62e08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911618316381:android:cac109dda25602a57915b4",
+        "android_client_info": {
+          "package_name": "com.vnrseeds.samadhan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911618316381-omnkgq5ns852fqpuete42kcembvs4ci6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9zPR_uBRqGvKwPY_RE-DJgJoY24CV_Zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911618316381-omnkgq5ns852fqpuete42kcembvs4ci6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_details"
+        android:title="Details"
+        android:icon="@drawable/description"/>
+
+    <item android:id="@+id/nav_handling"
+        android:title="Diagnosis"
+        android:icon="@drawable/diagnosis"/>
+
+    <item android:id="@+id/nav_intnotes"
+        android:title="Internal Notes"
+        android:icon="@drawable/description"/>
+
+    <item android:id="@+id/nav_resolved"
+        android:title="Resolve"
+        android:icon="@drawable/group_ok"/>
+
+    <item android:id="@+id/nav_closeticket"
+        android:title="Close"
+        android:icon="@drawable/close_24px"/>
+</menu>

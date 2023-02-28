@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/color_green_dark</item>
+    </style>
+    <style name="radio_button" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="linear_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="radio_group">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="headline">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">#49454F</item>
+    </style>
+
+    <style name="my_tickets">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">#49454F</item>
+    </style>
+
+    <style name="ticket_stat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">#49454F</item>
+    </style>
+
+    <style name="tickets_in_">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">#49454F</item>
+    </style>
+    <style name="ticket_1123">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">#837D8C</item>
+    </style>
+    <style name="ticket_for">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#837D8C</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="label_text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#1D192B</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="label_text2">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#49454F</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="text8sp">
+        <item name="android:textSize">8sp</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textColor">#49454F</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="desktop">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#1C1B1F</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="desktop12sp">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#1C1B1F</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="desktop14sp">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#1C1B1F</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="desktop16sp">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#1C1B1F</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#3F5F36</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="label_text3">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#435E3D</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+</resources>

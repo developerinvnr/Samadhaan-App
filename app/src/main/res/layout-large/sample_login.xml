@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tab_bg_dark"
+    android:orientation="vertical"
+    tools:context=".common.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_top_panel"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="30dp"
+            app:srcCompat="@drawable/final_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="72dp"
+            android:textSize="24sp"
+            android:text="Login"
+            android:textColor="@color/color_green_dark"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_username"
+            style="@style/EditTextStyleMobileNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/color_green_dark"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/person"
+            android:hint="Email/Mobile Number"
+            android:textColorHint="@color/colorDivider"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/EditTextStyleMobileNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/color_green_dark"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/lock"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:textColorHint="@color/colorDivider"
+            android:padding="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="30dp">
+
+            <!--<CheckBox
+                android:id="@+id/checkBox_rssc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remeber Me"
+                android:layout_weight="1"
+                android:textColor="@color/colorLogoLightGreen" />-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:text="Forgot Password?"
+                android:textColor="@color/colorLogoLightGreen" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_loginsubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/shape_login_button"
+        android:text="Login"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/ll_panel"
+        app:layout_constraintStart_toStartOf="@+id/ll_panel"
+        app:layout_constraintTop_toBottomOf="@+id/ll_panel" />
+
+</LinearLayout>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.vnrseeds.samadhan">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_appicon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:logo="@drawable/ic_menu"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Samadhan"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.AssignHistoryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.SRNListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.VisitListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.common.ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.AddBYODAssetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.ServiceRepaireNoteActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.common.HelpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.common.ChangePasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.AddToAssetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.ITNListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.InternalTransferNoteActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.notifications.NotificationDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.notifications.PushNotificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.TicketHistoryListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.notifications.NotificationListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.DeployAssetFormActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.DeployAssetListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.test.TestHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.TicketRaiseAssetListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.EditTicketActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.TicketHandlingUserActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.TicketHandlingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.TicketsListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.EditCameraActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.TicketAssetListActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.ticketsystem.RaiseTicketActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.EditPrinterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.AddAccessPointActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.ImageUploadActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.CropperActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditTelevisionActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditTabActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditRouterActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditSFPTransceiverActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditDVRNVRActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.RouterActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditModemActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.TelevisionActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.LaptopActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.AddThinClientActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EditAssetActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.AssetListActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.EPBXActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.TabActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.SFPTransceiverActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.ModemActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.PrinterActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.CameraActivity" />
+        <activity android:name="com.vnrseeds.samadhan.addassetforms.DVRNVRActivity" />
+        <activity android:name="com.vnrseeds.samadhan.AssetCategorySelectionActivity" />
+        <activity
+            android:name="com.vnrseeds.samadhan.common.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vnrseeds.samadhan.addassetforms.AddAssetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.common.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vnrseeds.samadhan.MainActivity"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Samadhan.NoActionBar" />
+
+        <service
+            android:name=".firebase.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

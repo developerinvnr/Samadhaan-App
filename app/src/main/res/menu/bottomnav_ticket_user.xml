@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_details"
+        android:title="Details"
+        android:icon="@drawable/details"/>
+
+    <item android:id="@+id/nav_intnotes"
+        android:title="Add Note"
+        android:icon="@drawable/internal_note"/>
+
+    <item android:id="@+id/nav_closeticket"
+        android:title="Close Ticket"
+        android:icon="@drawable/ic_baseline_close_24"/>
+</menu>

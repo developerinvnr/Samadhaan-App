@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/lightCard"
+        android:elevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notice"
+                android:textAppearance="@style/my_tickets"
+                android:lineSpacingExtra="5sp"
+                android:translationY="-2.62sp"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/tv_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="@style/desktop14sp"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Internet services will be under maintenance from 3:00 pm tomorrow"
+                android:textAppearance="@style/desktop12sp"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/affected_fr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Affected from 19-11-22"
+                    android:textAppearance="@style/ticket_1123"
+                    android:lineSpacingExtra="3sp"
+                    android:translationY="-1.55sp" />
+
+                <TextView
+                    android:id="@+id/affected_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="Affected To 19-11-22"
+                    android:textAppearance="@style/ticket_1123"
+                    android:lineSpacingExtra="3sp"
+                    android:translationY="-1.55sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/from_it_ser"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:text="From - IT Services Support"
+                android:textAppearance="@style/ticket_1123"
+                android:lineSpacingExtra="3sp"
+                android:translationY="-1.55sp"
+                android:gravity="top" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

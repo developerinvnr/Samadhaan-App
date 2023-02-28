@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<item
+        android:id="@+id/action_itn"
+        app:showAsAction="never"
+        android:title="Generate ITN">
+    </item>-->
+    <item
+        android:id="@+id/action_itnlist"
+        app:showAsAction="never"
+        android:title="ITN List">
+    </item>
+    <!--<item
+        android:id="@+id/action_srn"
+        app:showAsAction="never"
+        android:title="Generate SRN">
+    </item>-->
+    <item
+        android:id="@+id/action_srnlist"
+        app:showAsAction="never"
+        android:title="SRN List">
+    </item>
+    <!--<item
+        android:id="@+id/action_assignLogs"
+        app:showAsAction="never"
+        android:title="Assign History">
+    </item>-->
+</menu>

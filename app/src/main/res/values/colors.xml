@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#49454F</color>
+    <color name="purple_500">#49454F</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FFE6E686</color>
+    <color name="teal_700">#FFE6E686</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_pink">#cf4bf8</color>
+    <color name="color_violet">#8813e4</color>
+    <color name="color_blue">#3d93d9</color>
+
+    <color name="color_green_dark">#3F5F36</color>
+    <color name="color_green_li">#4B8E20</color>
+    <color name="color_orange">#FFD648</color>
+    <color name="color_orange_light">#FEE3A0</color>
+    <color name="colorDivider">#9A9A9A</color>
+    <color name="colorDividerLight">#CFCECE</color>
+    <color name="colorDividerLighter">#EAE9E9</color>
+    <color name="colorLogoLightGreen">#C3C148</color>
+    <color name="colorToolbarLight">#EAEAD3</color>
+    <color name="colorToolbarDark">#FFE6E686</color>
+    <color name="colorRed">#F44336</color>
+    <color name="colorOrange">#FF9800</color>
+
+    <color name="colorToolbar">#cfcd58</color>
+    <color name="colorbackgroung">#c3c148</color>
+    <color name="colorCardBackColor">#dddb91</color>
+    <color name="colorCardBackColor2">#deddb9</color>
+    <color name="colorCardBackColor3">#f8f8ee</color>
+    <color name="colorButtonBackground">#99970f</color>
+    <color name="lightCard">#EAEAD2</color>
+    <color name="darkCard">#DDDB91</color>
+    <color name="cardShadow">#FFFBFE</color>
+    <color name="darkCardButton">#CFCC57</color>
+</resources>
