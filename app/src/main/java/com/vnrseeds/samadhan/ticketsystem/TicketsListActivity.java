@@ -273,7 +273,7 @@ public class TicketsListActivity extends AppCompatActivity implements TicketsLis
     }
 
     private void getTicketInfo(String ticketId) {
-        Log.e("Ticket ID : ", ticketId);
+        //Log.e("Ticket ID : ", ticketId);
     }
 
     public void editTicket(TicketsListPojo ticketsListPojo) {
