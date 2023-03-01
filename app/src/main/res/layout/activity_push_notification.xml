@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/spinner_background"
-                android:hint="Select Location"
+                android:hint="ALL"
                 android:textAppearance="@style/text"
                 android:padding="16dp" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/spinner_background"
-                android:hint="Select Department"
+                android:hint="ALL"
                 android:textAppearance="@style/text"
                 android:padding="16dp" />
 
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/spinner_background"
-                android:hint="Select custodian"
+                android:hint="ALL"
                 android:textAppearance="@style/text"
                 android:padding="16dp" />
 

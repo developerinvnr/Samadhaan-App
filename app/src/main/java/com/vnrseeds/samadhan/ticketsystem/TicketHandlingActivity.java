@@ -98,7 +98,7 @@ public class TicketHandlingActivity extends AppCompatActivity {
         //toolbar_title.setText("Ticket Handling");
         bn_view = findViewById(R.id.bn_view);
         ticketDetailsPojo = (TicketDetailsPojo) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_TICKET_OBJ, TicketDetailsPojo.class);
-        getReply(ticketDetailsPojo.getTicketId());
+        //getReply(ticketDetailsPojo.getTicketId());
         userData = (User) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_LOGIN_OBJ, User.class);
     }
 

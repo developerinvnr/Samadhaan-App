@@ -54,9 +54,11 @@ import com.vnrseeds.samadhan.addassetforms.Utility;
 import com.vnrseeds.samadhan.communicator.DateCommunicator;
 import com.vnrseeds.samadhan.parser.priorityparser.Datum;
 import com.vnrseeds.samadhan.parser.priorityparser.PriorityResponse;
+import com.vnrseeds.samadhan.parser.roleparser.RoleResponse;
 import com.vnrseeds.samadhan.parser.submitsuccessparser.SubmitSuccessResponse;
 import com.vnrseeds.samadhan.parser.ticketslistparser.TicketDetailsPojo;
 import com.vnrseeds.samadhan.parser.ticketviewparser.HandleReplyLog;
+import com.vnrseeds.samadhan.parser.ticketviewparser.RaiseData;
 import com.vnrseeds.samadhan.parser.ticketviewparser.TicketViewResponse;
 import com.vnrseeds.samadhan.retrofit.ApiInterface;
 import com.vnrseeds.samadhan.retrofit.RetrofitClient;
@@ -132,6 +134,8 @@ public class TicketHandlingFragment extends Fragment {
     private String userChoosenTask;
     private LinearLayout ll_issuephoto;
     private ImageView iv_issuephoto;
+    private RaiseData ticketRaisedData;
+    private RoleResponse roleResponse;
 
     public TicketHandlingFragment() {
         // Required empty public constructor
@@ -166,7 +170,7 @@ public class TicketHandlingFragment extends Fragment {
         TextView tv_ticket_title = view.findViewById(R.id.tv_ticket_title);
         TextView tv_priority = view.findViewById(R.id.tv_priority);
         tv_more = view.findViewById(R.id.tv_more);
-
+        roleResponse = (RoleResponse) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_ROLES_OBJ, RoleResponse.class);
         ticketDetailsPojo = (TicketDetailsPojo) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_TICKET_OBJ, TicketDetailsPojo.class);
         tv_ticketdate.setText(ticketDetailsPojo.getTicketDate());
         tv_ticketno.setText(ticketDetailsPojo.getTicketNo());
@@ -208,7 +212,14 @@ public class TicketHandlingFragment extends Fragment {
         if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved")){
             button_diagnosys.setVisibility(View.GONE);
         }else {
-            button_diagnosys.setVisibility(View.VISIBLE);
+            if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")){
+                button_diagnosys.setVisibility(View.GONE);
+            }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")){
+                button_diagnosys.setVisibility(View.GONE);
+            }else {
+                button_diagnosys.setVisibility(View.VISIBLE);
+            }
+            //button_diagnosys.setVisibility(View.VISIBLE);
         }
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -745,9 +756,11 @@ public class TicketHandlingFragment extends Fragment {
                     TicketViewResponse ticketViewResponse = response.body();
                     assert ticketViewResponse != null;
                     ticketViewArray = ticketViewResponse.getData().getHandleReplyLogs();
+                    ticketRaisedData = ticketViewResponse.getData().getRaiseData();
                     ticketViewAdapter = new TicketViewAdapter(getContext(), ticketViewArray);
                     lv_commentlist.setAdapter(ticketViewAdapter);
                     ticketViewAdapter.notifyDataSetChanged();
+                    SharedPreferences.getInstance().storeObject(SharedPreferences.KEY_TICKET_INFO, ticketRaisedData);
                 }else {
                     customProgressDialogue.cancel();
                     if (response.errorBody() != null) {
@@ -783,18 +796,18 @@ public class TicketHandlingFragment extends Fragment {
                     customProgressDialogue.cancel();
                     SubmitSuccessResponse submitSuccessResponse = response.body();
                     if (submitSuccessResponse != null) {
-                        if (ticket_is_change_request.equalsIgnoreCase("Invalid Request") || ticket_is_change_request_status.equalsIgnoreCase("Next Version")) {
+                        //if (ticket_is_change_request.equalsIgnoreCase("Invalid Request") || ticket_is_change_request_status.equalsIgnoreCase("Next Version")) {
                             Intent intent = new Intent(getActivity(), TicketsListActivity.class);
                             startActivity(intent);
                             getActivity().finish();
-                        }else {
+                        /*}else {
                             assert getFragmentManager() != null;
                             getFragmentManager().beginTransaction().detach(new TicketHandlingFragment()).attach(new TicketHandlingFragment()).commit();
                             //Utils.getInstance().showAlert(getActivity(), submitSuccessResponse.getMessage());
                             //ticketDetailsPojo.setTicketStatus("Diagnosis");
                             Toast.makeText(getActivity(), submitSuccessResponse.getMessage(), Toast.LENGTH_LONG).show();
                             getReply(ticketDetailsPojo.getTicketId());
-                        }
+                        }*/
                     }
                 }else {
                     customProgressDialogue.cancel();

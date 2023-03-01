@@ -32,6 +32,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.vnrseeds.samadhan.MainActivity;
 import com.vnrseeds.samadhan.R;
 import com.vnrseeds.samadhan.adapter.SoftwareTicketsListAdapter;
+import com.vnrseeds.samadhan.adapter.TicketViewAdapter;
 import com.vnrseeds.samadhan.adapter.TicketsListAdapter;
 import com.vnrseeds.samadhan.parser.roleparser.RoleResponse;
 import com.vnrseeds.samadhan.parser.submitsuccessparser.SubmitSuccessResponse;
@@ -39,6 +40,8 @@ import com.vnrseeds.samadhan.parser.ticketslistparser.Datum;
 import com.vnrseeds.samadhan.parser.ticketslistparser.TicketDetailsPojo;
 import com.vnrseeds.samadhan.parser.ticketslistparser.TicketListResponse;
 import com.vnrseeds.samadhan.parser.ticketslistparser.TicketsListPojo;
+import com.vnrseeds.samadhan.parser.ticketviewparser.RaiseData;
+import com.vnrseeds.samadhan.parser.ticketviewparser.TicketViewResponse;
 import com.vnrseeds.samadhan.pojo.SoftwareTicketsListPojo;
 import com.vnrseeds.samadhan.retrofit.ApiInterface;
 import com.vnrseeds.samadhan.retrofit.RetrofitClient;
@@ -81,6 +84,7 @@ public class TicketsListActivity extends AppCompatActivity implements TicketsLis
     private final ArrayList<SoftwareTicketsListPojo> softwareArray = new ArrayList<>();
     private RecyclerView lv_ticketslist_sw;
     private SoftwareTicketsListAdapter listSoftwareAdapter;
+    private RaiseData ticketInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -274,6 +278,40 @@ public class TicketsListActivity extends AppCompatActivity implements TicketsLis
 
     private void getTicketInfo(String ticketId) {
         //Log.e("Ticket ID : ", ticketId);
+        ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+        customProgressDialogue.show();
+        Call<TicketViewResponse> call = apiInterface.getTicketViewInfo("application/json", "Bearer " + token, ticketId);
+        call.enqueue(new Callback<TicketViewResponse>() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onResponse(@NonNull Call<TicketViewResponse> call, @NonNull Response<TicketViewResponse> response) {
+                if (response.isSuccessful()){
+                    customProgressDialogue.cancel();
+                    TicketViewResponse ticketViewResponse = response.body();
+                    assert ticketViewResponse != null;
+                    ticketInfo = ticketViewResponse.getData().getRaiseData();
+                    SharedPreferences.getInstance().storeObject(SharedPreferences.KEY_TICKET_INFO, ticketInfo);
+                }else {
+                    customProgressDialogue.cancel();
+                    if (response.errorBody() != null) {
+                        try {
+                            JSONObject jsonObj = new JSONObject(TextStreamsKt.readText(response.errorBody().charStream()));
+                            String msg = jsonObj.getString("message");
+                            Toast.makeText(TicketsListActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<TicketViewResponse> call, @NonNull Throwable t) {
+                customProgressDialogue.cancel();
+                Log.e(TAG, "RetrofitError : " + t.getMessage());
+                Toast.makeText(TicketsListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void editTicket(TicketsListPojo ticketsListPojo) {

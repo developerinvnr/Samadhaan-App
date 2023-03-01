@@ -40,6 +40,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.signature.StringSignature;
+import com.vnrseeds.samadhan.MainActivity;
 import com.vnrseeds.samadhan.R;
 import com.vnrseeds.samadhan.addassetforms.Utility;
 import com.vnrseeds.samadhan.parser.addtoticketparser.AddToTicketResponse;
@@ -173,6 +174,7 @@ public class RaiseTicketActivity extends AppCompatActivity {
     private String iconName;
     private String isBYOD;
     private ArrayAdapter<String> priorityAdapter;
+    private String navigateTo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,6 +237,7 @@ public class RaiseTicketActivity extends AppCompatActivity {
         ticketIsActive=getIntent().getStringExtra("ticketIsActive");
         iconName=getIntent().getStringExtra("iconName");
         isBYOD=getIntent().getStringExtra("isBYOD");
+        navigateTo=getIntent().getStringExtra("navigateTo");
 
         tv_ticketfor.setText(ticketFor);
         tv_servicetype.setText(servicetype);
@@ -354,9 +357,16 @@ public class RaiseTicketActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.colorToolbarDark));
         }
         back_nav.setOnClickListener(view -> {
-            Intent intent = new Intent(RaiseTicketActivity.this, TicketAssetListActivity.class);
-            startActivity(intent);
-            finish();
+            if (navigateTo.equalsIgnoreCase("assetList")) {
+                Intent intent = new Intent(RaiseTicketActivity.this, TicketAssetListActivity.class);
+                startActivity(intent);
+                finish();
+            }else {
+                Intent intent = new Intent(RaiseTicketActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
         });
         //getLocationList();
         //getServiceType(ticketFor, raisedByID);
@@ -922,7 +932,11 @@ public class RaiseTicketActivity extends AppCompatActivity {
                     ArrayList<String> issuelist1 = new ArrayList<>();
                     for (Datum obj : issueListData) {
                         issueList.add(obj.getIssueName());
-                        issuelist1.add(obj.getIssueName()+"\n"+obj.getIssueHindiName());
+                        if (obj.getIssueHindiName()!=null && !obj.getIssueHindiName().equalsIgnoreCase("")) {
+                            issuelist1.add(obj.getIssueName() + "\n" + obj.getIssueHindiName());
+                        }else {
+                            issuelist1.add(obj.getIssueName());
+                        }
                     }
                     issuelist = issuelist1.toArray(new String[0]);
                     selectedIssues = new boolean[issuelist.length];
@@ -1198,8 +1212,15 @@ public class RaiseTicketActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(RaiseTicketActivity.this, TicketAssetListActivity.class);
-        startActivity(intent);
-        finish();
+        if (navigateTo.equalsIgnoreCase("assetList")) {
+            Intent intent = new Intent(RaiseTicketActivity.this, TicketAssetListActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            Intent intent = new Intent(RaiseTicketActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        }
     }
 }

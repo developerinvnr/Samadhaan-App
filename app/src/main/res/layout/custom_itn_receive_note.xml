@@ -184,8 +184,8 @@
                     android:id="@+id/spinner_primary_loc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:allowClickWhenDisabled="true"
+                    android:editable="false"
+                    android:inputType="none"
                     android:textAppearance="@style/text"
                     android:text="Select"/>
 
@@ -218,8 +218,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/text"
-                    android:enabled="false"
-                    android:allowClickWhenDisabled="true"
+                    android:editable="false"
+                    android:inputType="none"
                     android:text="Select"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -239,8 +239,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/text"
-                    android:enabled="false"
-                    android:allowClickWhenDisabled="true"
+                    android:editable="false"
+                    android:inputType="none"
                     android:text="Select"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -272,8 +272,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/text"
-                    android:enabled="false"
-                    android:allowClickWhenDisabled="true"
+                    android:editable="false"
+                    android:inputType="none"
                     android:text="Select"/>
 
             </com.google.android.material.textfield.TextInputLayout>

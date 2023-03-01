@@ -107,7 +107,7 @@ public class SRNListActivity extends AppCompatActivity implements SRNListAdapter
     private Uri image_uri;
     private String userChoosenTask;
     private String srn_received_for="Self";
-    private String srn_received_transfer_to="Workshop";
+    private String srn_received_transfer_to="Store";
     private List<com.vnrseeds.samadhan.parser.primarylocparser.Datum> primaryLocations;
     private AutoCompleteTextView spinner_primary_loc;
     private AutoCompleteTextView spinner_sec_loc;

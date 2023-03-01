@@ -580,13 +580,46 @@ public class AddToAssetActivity extends AppCompatActivity {
                         asset_id = String.valueOf(consumaleList.get(i).getAcId());
                         tv_availabletQty.setText(String.valueOf(consumaleList.get(i).getAvailable()));
                         storeQty = consumaleList.get(i).getAvailable();
-                        tv_sloc.setText(consumaleList.get(i).getPrimaryStorage()+"/"+consumaleList.get(i).getSecondaryStorage()+"/"+consumaleList.get(i).getStorageType()+"/"+consumaleList.get(i).getSectionName()+"/"+consumaleList.get(i).getAssetBoxNumber());
+                        String sloc="";
+                        if (consumaleList.get(i).getPrimaryStorage()!=null || !consumaleList.get(i).getPrimaryStorage().equalsIgnoreCase("")){
+                            sloc=consumaleList.get(i).getPrimaryStorage();
+                        }
+                        if (consumaleList.get(i).getSecondaryStorage()!=null || !consumaleList.get(i).getSecondaryStorage().equalsIgnoreCase("")){
+                            sloc=sloc+"/"+consumaleList.get(i).getSecondaryStorage();
+                        }
+                        if (consumaleList.get(i).getStorageType()!=null || !consumaleList.get(i).getStorageType().equalsIgnoreCase("")){
+                            sloc=sloc+"/"+consumaleList.get(i).getStorageType();
+                        }
+                        if (consumaleList.get(i).getSectionName()!=null || !consumaleList.get(i).getSectionName().equalsIgnoreCase("")){
+                            sloc=sloc+"/"+consumaleList.get(i).getSectionName();
+                        }
+                        if (consumaleList.get(i).getAssetBoxNumber()!=null || !consumaleList.get(i).getAssetBoxNumber().equalsIgnoreCase("")){
+                            sloc=sloc+"/"+consumaleList.get(i).getAssetBoxNumber();
+                        }
+                        tv_sloc.setText(sloc);
                     }else {
                         if (rb_removeAsset.isChecked()){
                             asset_id = String.valueOf(internalPeripheralList.get(i).getAcId());
                         }else {
                             asset_id = String.valueOf(peripheralList.get(i).getAssetId());
-                            tv_sloc.setText(peripheralList.get(i).getPrimaryStorage()+"/"+peripheralList.get(i).getSecondaryStorage()+"/"+peripheralList.get(i).getStorageType()+"/"+peripheralList.get(i).getSectionName()+"/"+peripheralList.get(i).getAssetBoxNumber());
+                            String sloc="";
+                            if (peripheralList.get(i).getPrimaryStorage()!=null || !peripheralList.get(i).getPrimaryStorage().equalsIgnoreCase("")){
+                                sloc=peripheralList.get(i).getPrimaryStorage();
+                            }
+                            if (peripheralList.get(i).getSecondaryStorage()!=null || !peripheralList.get(i).getSecondaryStorage().equalsIgnoreCase("")){
+                                sloc=sloc+"/"+peripheralList.get(i).getSecondaryStorage();
+                            }
+                            if (peripheralList.get(i).getStorageType()!=null || !peripheralList.get(i).getStorageType().equalsIgnoreCase("")){
+                                sloc=sloc+"/"+peripheralList.get(i).getStorageType();
+                            }
+                            if (peripheralList.get(i).getSectionName()!=null || !peripheralList.get(i).getSectionName().equalsIgnoreCase("")){
+                                sloc=sloc+"/"+peripheralList.get(i).getSectionName();
+                            }
+                            if (peripheralList.get(i).getAssetBoxNumber()!=null || !peripheralList.get(i).getAssetBoxNumber().equalsIgnoreCase("")){
+                                sloc=sloc+"/"+peripheralList.get(i).getAssetBoxNumber();
+                            }
+                            tv_sloc.setText(sloc);
+                            //tv_sloc.setText(peripheralList.get(i).getPrimaryStorage()+"/"+peripheralList.get(i).getSecondaryStorage()+"/"+peripheralList.get(i).getStorageType()+"/"+peripheralList.get(i).getSectionName()+"/"+peripheralList.get(i).getAssetBoxNumber());
                         }
                     }
                 }

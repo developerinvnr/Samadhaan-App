@@ -117,6 +117,7 @@ public class HomeFragment extends Fragment implements HomeTicketListAdapter.Tick
     private int byodCNT=0;
     private FragmentActivity context;
     private ArrayList<NoticeListPojo> noticeListData=new ArrayList<>();
+    private User userData;
 
     @SuppressLint({"MissingInflatedId", "NotifyDataSetChanged"})
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -191,10 +192,9 @@ public class HomeFragment extends Fragment implements HomeTicketListAdapter.Tick
         lv_noticelist.setAdapter(noticelistAdapter);
         noticelistAdapter.notifyDataSetChanged();
 
-
-        User userData = (User) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_LOGIN_OBJ, User.class);
+        userData = (User) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_LOGIN_OBJ, User.class);
         raisedByID = userData.getUser_id();
-
+        //Log.e("BOYD", userData.getUserIsByod());
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -324,10 +324,17 @@ public class HomeFragment extends Fragment implements HomeTicketListAdapter.Tick
                         }
                         tv_assetCount.setText(String.valueOf(assetsdata.size()));
 
-                        if (byodCNT>0 && (roleResponse.getData().isEmpty() || (roleResponse.getData().contains("CUSTODIAN") && roleResponse.getData().size()==1))){
+                        if (byodCNT>0 && (roleResponse.getData().isEmpty() || !roleResponse.getData().contains("HARDWARE_ENGINEER"))){
                             cv_byod.setVisibility(View.GONE);
                         }else{
-                            cv_byod.setVisibility(View.VISIBLE);
+                            if (userData.getUserIsByod()!=null) {
+                                if (userData.getUserIsByod().equalsIgnoreCase("0") && !roleResponse.getData().contains("HARDWARE_ENGINEER")) {
+                                    cv_byod.setVisibility(View.GONE);
+                                } else {
+                                    cv_byod.setVisibility(View.VISIBLE);
+                                }
+                            }
+
                         }
 
                         Log.e("BYOD Assets", String.valueOf(byodCNT));
@@ -580,6 +587,7 @@ public class HomeFragment extends Fragment implements HomeTicketListAdapter.Tick
         intent.putExtra("serviceType", "Software");
         intent.putExtra("icon", softwareListPojo.getApplication_icon());
         intent.putExtra("isBYOD", "0");
+        intent.putExtra("navigateTo", "dashboard");
         startActivity(intent);
         getActivity().finish();
         //Toast.makeText(getActivity(), softwareListPojo.getApplication_name(), Toast.LENGTH_SHORT).show();

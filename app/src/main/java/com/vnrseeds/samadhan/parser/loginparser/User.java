@@ -89,6 +89,9 @@ public class User {
     @SerializedName("city_name")
     @Expose
     private String cityName;
+    @SerializedName("user_is_byod")
+    @Expose
+    private String userIsByod;
 
     public String getUser_id() {
         return user_id;
@@ -280,5 +283,13 @@ public class User {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    public String getUserIsByod() {
+        return userIsByod;
+    }
+
+    public void setUserIsByod(String userIsByod) {
+        this.userIsByod = userIsByod;
     }
 }

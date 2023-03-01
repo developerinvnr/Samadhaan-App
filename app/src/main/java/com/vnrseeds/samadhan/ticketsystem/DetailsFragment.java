@@ -342,7 +342,14 @@ public class DetailsFragment extends Fragment {
             if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw")){
                 ll_buttons.setVisibility(View.GONE);
             }else {
-                ll_buttons.setVisibility(View.VISIBLE);
+                if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")){
+                    ll_buttons.setVisibility(View.GONE);
+                }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")){
+                    ll_buttons.setVisibility(View.GONE);
+                }else {
+                    ll_buttons.setVisibility(View.VISIBLE);
+                }
+
                 if (ticketDetailsPojo.getTicketIsViewed().equalsIgnoreCase("0")) {
                     setViewTicketStatus(ticketDetailsPojo.getTicketId());
                 }

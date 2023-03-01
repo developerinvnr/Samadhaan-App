@@ -638,6 +638,7 @@ public class TicketAssetListActivity extends AppCompatActivity implements Ticket
                         intent.putExtra("ticketIsActive", String.valueOf(ticketIsActive));
                         intent.putExtra("iconName", iconName);
                         intent.putExtra("isBYOD", isBYOD);
+                        intent.putExtra("navigateTo", "assetList");
                         startActivity(intent);
                         finish();
                     }

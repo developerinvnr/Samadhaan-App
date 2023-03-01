@@ -143,22 +143,23 @@ public class AddBYODAssetActivity extends AppCompatActivity {
         user_id = userData.getUser_id();
 
         roleResponse = (RoleResponse) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_ROLES_OBJ, RoleResponse.class);
-        if (roleResponse.getData().isEmpty() || (roleResponse.getData().contains("CUSTODIAN") && roleResponse.getData().size()==1)){
+        Log.e("Roles", String.valueOf(roleResponse.getData()));
+        if (!roleResponse.getData().contains("HARDWARE_ENGINEER")){
             ll_assetFor.setVisibility(View.GONE);
         }else{
             ll_assetFor.setVisibility(View.VISIBLE);
+            if (Integer.parseInt(byodCNT)>0 || userData.getUserIsByod().equalsIgnoreCase("0")){
+                rb_self.setChecked(false);
+                rb_self.setEnabled(false);
+                rb_user.setChecked(true);
+                ll_location.setVisibility(View.VISIBLE);
+                ll_dept.setVisibility(View.VISIBLE);
+                ll_user.setVisibility(View.VISIBLE);
+                assetFor="Other";
+                user_id = "";
+            }
         }
 
-        if (Integer.parseInt(byodCNT)>0){
-            rb_self.setChecked(false);
-            rb_self.setEnabled(false);
-            rb_user.setChecked(true);
-            ll_location.setVisibility(View.VISIBLE);
-            ll_dept.setVisibility(View.VISIBLE);
-            ll_user.setVisibility(View.VISIBLE);
-            assetFor="Other";
-            user_id = "";
-        }
     }
 
     private void init(){
@@ -171,6 +172,7 @@ public class AddBYODAssetActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddBYODAssetActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }
@@ -518,5 +520,13 @@ public class AddBYODAssetActivity extends AppCompatActivity {
                 Log.e(TAG, "RetrofitError : " + t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AddBYODAssetActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

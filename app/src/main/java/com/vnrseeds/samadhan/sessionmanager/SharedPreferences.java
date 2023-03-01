@@ -19,6 +19,7 @@ public class SharedPreferences {
     public static final String KEY_NOTIFICATIONLIST_OBJ = "notificationlist_obj";
     public static final String KEY_TOKEN = "token";
     public static final String KEY_NOTIFICATION_TOKEN = "NotificationToken";
+    public static final String KEY_TICKET_INFO = "ticketInfo";
 
     private static SharedPreferences sSharedPrefs;
 
