@@ -287,6 +287,7 @@ public class SRNListActivity extends AppCompatActivity implements SRNListAdapter
         EditText et_boxNumber = dialog.findViewById(R.id.et_boxNumber);
         RadioButton rb_self = dialog.findViewById(R.id.rb_self);
         RadioButton rb_user = dialog.findViewById(R.id.rb_user);
+        RadioButton rb_service_center = dialog.findViewById(R.id.rb_service_center);
         ll_issuephoto = dialog.findViewById(R.id.ll_issuephoto);
         iv_issuephoto = dialog.findViewById(R.id.iv_issuephoto);
         ll_itnFor.setVisibility(View.VISIBLE);
@@ -296,19 +297,35 @@ public class SRNListActivity extends AppCompatActivity implements SRNListAdapter
         ll_storageSection.setVisibility(View.VISIBLE);
 
         tv_lastlot.setText("Receive SRN");
-        til_lable.setHint("Receive Note");
+        til_lable.setHint(R.string.receive_note);
 
         tv_issuephoto.setOnClickListener(view -> selectImage());
 
-        if (roleResponse.getData().contains("CUSTODIAN") && roleResponse.getData().size()==1){
+        if (datum.getSrnScReceivedAt()!=null){
+            rb_service_center.setChecked(false);
+            rb_service_center.setVisibility(View.GONE);
+            if (roleResponse.getData().contains("CUSTODIAN") && roleResponse.getData().size()==1){
+                rb_self.setChecked(false);
+                rb_self.setVisibility(View.GONE);
+                rb_user.setChecked(true);
+                srn_received_for="User";
+                ll_primary_loc.setVisibility(View.GONE);
+                ll_secondary_loc.setVisibility(View.GONE);
+                ll_storageSection.setVisibility(View.GONE);
+                ll_srn_received_transfer_to.setVisibility(View.GONE);
+            }
+        }else {
             rb_self.setChecked(false);
             rb_self.setVisibility(View.GONE);
-            rb_user.setChecked(true);
-            srn_received_for="User";
+            rb_user.setChecked(false);
+            rb_user.setVisibility(View.GONE);
+            rb_service_center.setChecked(true);
+            srn_received_for="Service Center";
             ll_primary_loc.setVisibility(View.GONE);
             ll_secondary_loc.setVisibility(View.GONE);
             ll_storageSection.setVisibility(View.GONE);
             ll_srn_received_transfer_to.setVisibility(View.GONE);
+            tv_issuephoto.setVisibility(View.GONE);
         }
 
         rg_receivingFor.setOnCheckedChangeListener((radioGroup, checkedId) -> {
@@ -439,8 +456,8 @@ public class SRNListActivity extends AppCompatActivity implements SRNListAdapter
                 ll_primary_loc.setVisibility(View.VISIBLE);
                 ll_secondary_loc.setVisibility(View.VISIBLE);
                 ll_storageSection.setVisibility(View.VISIBLE);
-            }else if (rb2.getText().equals("Discarded")) {
-                srn_received_transfer_to="Discarded";
+            }else if (rb2.getText().equals("Discard")) {
+                srn_received_transfer_to="Discard";
                 ll_primary_loc.setVisibility(View.GONE);
                 ll_secondary_loc.setVisibility(View.GONE);
                 ll_storageSection.setVisibility(View.GONE);
@@ -450,15 +467,15 @@ public class SRNListActivity extends AppCompatActivity implements SRNListAdapter
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = et_message.getText().toString();
+                String message = et_message.getText().toString().trim();
                 String boxNumber = et_boxNumber.getText().toString();
                 if (message.equalsIgnoreCase("")){
                     Toast.makeText(SRNListActivity.this, "Enter message", Toast.LENGTH_LONG).show();
-                }else if (srn_received_transfer_to.equalsIgnoreCase("Store") && primaryLoc_id.equalsIgnoreCase("")){
+                }else if (srn_received_for.equalsIgnoreCase("Self") && srn_received_transfer_to.equalsIgnoreCase("Store") && primaryLoc_id.equalsIgnoreCase("")){
                     Toast.makeText(SRNListActivity.this, "Select Primary Location", Toast.LENGTH_LONG).show();
-                }else if (srn_received_transfer_to.equalsIgnoreCase("Store") && secondaryLoc_id.equalsIgnoreCase("")){
+                }else if (srn_received_for.equalsIgnoreCase("Self") && srn_received_transfer_to.equalsIgnoreCase("Store") && secondaryLoc_id.equalsIgnoreCase("")){
                     Toast.makeText(SRNListActivity.this, "Select Secondary Location", Toast.LENGTH_LONG).show();
-                }else if (srn_received_transfer_to.equalsIgnoreCase("Store") && storageType_id.equalsIgnoreCase("")){
+                }else if (srn_received_for.equalsIgnoreCase("Self") && srn_received_transfer_to.equalsIgnoreCase("Store") && storageType_id.equalsIgnoreCase("")){
                     Toast.makeText(SRNListActivity.this, "Select Storage Type", Toast.LENGTH_LONG).show();
                 }else {
                     dialog.cancel();
@@ -753,7 +770,7 @@ public class SRNListActivity extends AppCompatActivity implements SRNListAdapter
         ll_issuephoto = dialog.findViewById(R.id.ll_issuephoto);
         iv_issuephoto = dialog.findViewById(R.id.iv_issuephoto);
         tv_lastlot.setText("Cancel SRN");
-        til_lable.setHint("Cancel Note");
+        til_lable.setHint(R.string.cancel_note);
 
         tv_issuephoto.setVisibility(View.GONE);
         ll_issuephoto.setVisibility(View.GONE);

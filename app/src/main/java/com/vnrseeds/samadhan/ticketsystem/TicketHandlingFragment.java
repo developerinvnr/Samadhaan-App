@@ -212,14 +212,14 @@ public class TicketHandlingFragment extends Fragment {
         if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved")){
             button_diagnosys.setVisibility(View.GONE);
         }else {
-            if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")){
+            /*if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")){
                 button_diagnosys.setVisibility(View.GONE);
             }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")){
                 button_diagnosys.setVisibility(View.GONE);
             }else {
                 button_diagnosys.setVisibility(View.VISIBLE);
-            }
-            //button_diagnosys.setVisibility(View.VISIBLE);
+            }*/
+            button_diagnosys.setVisibility(View.VISIBLE);
         }
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -473,15 +473,15 @@ public class TicketHandlingFragment extends Fragment {
                             Toast.makeText(getActivity(), "Select estimated resolution date", Toast.LENGTH_LONG).show();
                         } else if (ticket_is_change_request.equalsIgnoreCase("Support Request") && restime.equalsIgnoreCase("")) {
                             Toast.makeText(getActivity(), "Select estimated resolution time", Toast.LENGTH_LONG).show();
-                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Work in Progress") && resdate.equalsIgnoreCase("")) {
+                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Work in Progress") && !ticket_is_change_request.equalsIgnoreCase("Invalid Request") && resdate.equalsIgnoreCase("")) {
                             Toast.makeText(getActivity(), "Select estimated resolution date", Toast.LENGTH_LONG).show();
-                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Work in Progress") && restime.equalsIgnoreCase("")) {
+                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Work in Progress") && !ticket_is_change_request.equalsIgnoreCase("Invalid Request") && restime.equalsIgnoreCase("")) {
                             Toast.makeText(getActivity(), "Select estimated resolution time", Toast.LENGTH_LONG).show();
-                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Next Version") && cr_title.isEmpty()) {
+                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Next Version") && ticket_is_change_request.equalsIgnoreCase("Change Request") && cr_title.isEmpty()) {
                             Toast.makeText(getActivity(), "Enter CR title", Toast.LENGTH_LONG).show();
-                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Next Version") && cr_desc.isEmpty()) {
+                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Next Version") && ticket_is_change_request.equalsIgnoreCase("Change Request") && cr_desc.isEmpty()) {
                             Toast.makeText(getActivity(), "Enter CR description", Toast.LENGTH_LONG).show();
-                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Next Version") && cr_remarks.isEmpty()) {
+                        } else if (ticket_is_change_request_status.equalsIgnoreCase("Next Version") && ticket_is_change_request.equalsIgnoreCase("Change Request") && cr_remarks.isEmpty()) {
                             Toast.makeText(getActivity(), "Enter CR remark", Toast.LENGTH_LONG).show();
                         } else {
                             dialog.cancel();
@@ -632,6 +632,24 @@ public class TicketHandlingFragment extends Fragment {
                     tv_priority.setTextColor(Color.parseColor("#FF8744"));
                 }else if (ticketDetailsPojo.getPriority().equalsIgnoreCase("Low")){
                     tv_priority.setTextColor(Color.parseColor("#8FFF36"));
+                }
+
+                if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Open")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FFCA43"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Assigned")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#3f51b5"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Diagnosis")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Work in Progress")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#519F40"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#837D8C"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#00BCD4"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Reopen")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FC39AE"));
                 }
 
                 iv_close.setOnClickListener(new View.OnClickListener() {

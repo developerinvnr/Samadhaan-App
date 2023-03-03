@@ -188,7 +188,7 @@
                         android:layout_height="wrap_content"
                         app:counterEnabled="true"
                         app:counterMaxLength="1000"
-                        android:hint="Closure Note">
+                        android:hint="@string/closure_note">
 
                         <!--this is the actual edit text which takes the input-->
                         <com.google.android.material.textfield.TextInputEditText
@@ -204,7 +204,7 @@
                             android:padding="10dp"
                             android:maxLength="1000"
                             android:scrollbars="vertical"
-                            android:text=" "/>
+                            android:text=""/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 

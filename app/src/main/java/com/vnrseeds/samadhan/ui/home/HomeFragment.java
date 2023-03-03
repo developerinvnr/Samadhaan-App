@@ -568,6 +568,7 @@ public class HomeFragment extends Fragment implements HomeTicketListAdapter.Tick
             intent.putExtra("raisedByID", raisedByID);
             intent.putExtra("serviceType", "Hardware");
             intent.putExtra("isBYOD", assetListPojo.getAssetIsByod());
+            intent.putExtra("navigateTo", "dashboard");
             startActivity(intent);
             getActivity().finish();
         }else {

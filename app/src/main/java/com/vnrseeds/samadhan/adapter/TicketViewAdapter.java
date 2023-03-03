@@ -92,7 +92,12 @@ public class TicketViewAdapter extends RecyclerView.Adapter<TicketViewAdapter.My
             holder.tv_name.setText(handleReplyLog.getHandleCreatedBy());
             holder.tv_date.setText(handleReplyLog.getHandleDate());
             holder.tv_message.setText(handleReplyLog.getHandleDescription());
-            holder.tv_dateTime.setVisibility(View.GONE);
+            if (handleReplyLog.getHandleRequestType().equalsIgnoreCase("") && handleReplyLog.getHandleChangeRequestStatus().equalsIgnoreCase("")){
+                holder.tv_dateTime.setVisibility(View.GONE);
+            }else {
+                holder.tv_dateTime.setVisibility(View.VISIBLE);
+            }
+
             if (handleReplyLog.getHandleRequestType()!=null || !handleReplyLog.getHandleRequestType().equalsIgnoreCase("")){
                 if (handleReplyLog.getHandleRequestType().equalsIgnoreCase("Change Request")){
                     holder.tv_dateTime.setText("Request Type : "+handleReplyLog.getHandleRequestType()+" and Status : "+handleReplyLog.getHandleChangeRequestStatus());

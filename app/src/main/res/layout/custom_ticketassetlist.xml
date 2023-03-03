@@ -179,7 +179,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/brand"
+                        android:text="Brand"
                         android:textAppearance="@style/label_text2"/>
 
                     <TextView
@@ -187,7 +187,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/brand"
+                        android:text=""
                         android:textAppearance="@style/desktop12sp"/>
 
                 </LinearLayout>
@@ -203,14 +203,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/model"
+                        android:text="Model"
                         android:textAppearance="@style/label_text2" />
 
                     <TextView
                         android:id="@+id/tv_assetmodel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/model"
+                        android:text=""
                         android:textAppearance="@style/desktop12sp"/>
 
                 </LinearLayout>

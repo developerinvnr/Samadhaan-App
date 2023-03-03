@@ -184,7 +184,7 @@
                 android:layout_height="wrap_content"
                 app:counterEnabled="true"
                 app:counterMaxLength="500"
-                android:hint="Diagnosis Notes">
+                android:hint="@string/diagnosis_notes">
 
                 <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
@@ -200,7 +200,7 @@
                     android:padding="10dp"
                     android:maxLength="500"
                     android:scrollbars="vertical"
-                    android:text=" "/>
+                    android:text=""/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,7 +250,7 @@
                     app:counterEnabled="true"
                     app:counterMaxLength="50"
                     android:textColorHint="#435E3D"
-                    android:hint="CR Title">
+                    android:hint="@string/cr_title">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -259,7 +259,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/text"
                         android:maxLength="50"
-                        android:text=" "/>
+                        android:text=""/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -277,7 +277,7 @@
                     android:layout_height="wrap_content"
                     app:counterEnabled="true"
                     app:counterMaxLength="500"
-                    android:hint="CR Description">
+                    android:hint="@string/cr_description">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -292,7 +292,7 @@
                         android:minLines="6"
                         android:padding="10dp"
                         android:scrollbars="vertical"
-                        android:text=" "
+                        android:text=""
                         android:textAppearance="@style/text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -339,7 +339,7 @@
                     android:layout_height="wrap_content"
                     app:counterEnabled="true"
                     app:counterMaxLength="500"
-                    android:hint="CR Closure Remarks for User">
+                    android:hint="@string/cr_closure_remarks_for_user">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -354,7 +354,7 @@
                         android:minLines="6"
                         android:padding="10dp"
                         android:scrollbars="vertical"
-                        android:text=" "
+                        android:text=""
                         android:textAppearance="@style/text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -378,7 +378,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Estimated date to resolve"
+                    android:text="@string/estimated_date_to_resolve"
                     android:textAppearance="@style/desktop"/>
 
                 <TextView
@@ -403,7 +403,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Estimated time to resolve"
+                    android:text="@string/estimated_time_to_resolve"
                     android:textAppearance="@style/desktop"/>
 
                 <TextView
@@ -446,7 +446,7 @@
                         android:minLines="6"
                         android:padding="10dp"
                         android:scrollbars="vertical"
-                        android:text=" "
+                        android:text=""
                         android:textAppearance="@style/text" />
 
                 </com.google.android.material.textfield.TextInputLayout>

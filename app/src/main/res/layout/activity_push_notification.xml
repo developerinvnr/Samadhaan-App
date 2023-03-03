@@ -115,7 +115,7 @@
             app:counterEnabled="true"
             app:counterMaxLength="50"
             android:textColorHint="#435E3D"
-            android:hint="Subject">
+            android:hint="@string/subject">
 
             <!--this is the actual edit text which takes the input-->
             <com.google.android.material.textfield.TextInputEditText
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/text"
                 android:maxLength="50"
-                android:text=" "/>
+                android:text=""/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -145,7 +145,7 @@
                 app:counterEnabled="true"
                 android:textColorHint="#435E3D"
                 app:counterMaxLength="500"
-                android:hint="Description">
+                android:hint="@string/description">
 
                 <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
@@ -252,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Asset Category"/>
+                    android:text="@string/asset_category"/>
 
                 <TextView
                     android:id="@+id/tv_spinnerassetCategory"
@@ -340,7 +340,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Affected from date"/>
+                    android:text="@string/affected_from_date"/>
 
                 <TextView
                     android:id="@+id/tv_affectedFrom"
@@ -367,7 +367,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Affected from time"/>
+                    android:text="@string/affected_from_time"/>
 
                 <TextView
                     android:id="@+id/tv_affectedFromTime"
@@ -404,7 +404,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Affected to date"/>
+                    android:text="@string/affected_to_date"/>
 
                 <TextView
                     android:id="@+id/tv_affectedTo"
@@ -431,7 +431,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Affected to time"/>
+                    android:text="@string/affected_to_time"/>
 
                 <TextView
                     android:id="@+id/tv_affectedToTime"
@@ -468,7 +468,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Visible from date"/>
+                    android:text="@string/visible_from_date"/>
 
                 <TextView
                     android:id="@+id/tv_visibleFrom"
@@ -495,7 +495,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Visible from time"/>
+                    android:text="@string/visible_from_time"/>
 
                 <TextView
                     android:id="@+id/tv_visibleFromTime"
@@ -532,7 +532,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Visible to date"/>
+                    android:text="@string/visible_to_date"/>
 
                 <TextView
                     android:id="@+id/tv_visibleTo"
@@ -559,7 +559,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/label_text3"
-                    android:text="Visible to time"/>
+                    android:text="@string/visible_to_time"/>
 
                 <TextView
                     android:id="@+id/tv_visibleToTime"

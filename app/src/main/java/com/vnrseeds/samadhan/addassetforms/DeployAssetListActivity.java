@@ -179,6 +179,7 @@ public class DeployAssetListActivity extends AppCompatActivity implements Deploy
                     for (com.vnrseeds.samadhan.parser.classificationparser.Data obj:classifications){
                         classificationlist.add(obj.getClassificationName());
                     }
+
                     dd_assetClassification.setAdapter(classificationAdapter);
                     classificationAdapter.notifyDataSetChanged();
                 }else {
@@ -221,13 +222,14 @@ public class DeployAssetListActivity extends AppCompatActivity implements Deploy
                     categorylist.clear();
                     //categorylist.add("Select");
                     //Log.e(TAG, String.valueOf(assetCategory));
-                    //dd_assetCategory.setText("Select");
+                    dd_assetCategory.setText("Select");
                     for (Data obj:assetCategory){
                         categorylist.add(obj.getAcName());
                     }
                     Log.e(TAG, String.valueOf(categorylist));
+                    categoryAdapter = new ArrayAdapter<>(DeployAssetListActivity.this, android.R.layout.simple_spinner_item, categorylist);
+                    categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     dd_assetCategory.setAdapter(categoryAdapter);
-                    categoryAdapter.notifyDataSetChanged();
                 }else {
                     customProgressDialogue.cancel();
                     if (response.errorBody() != null) {

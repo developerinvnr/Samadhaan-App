@@ -261,7 +261,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Visit Date"
+                android:text="@string/visit_date"
                 android:textAppearance="@style/label_text2"/>
 
             <TextView
@@ -298,7 +298,7 @@
                         android:layout_height="wrap_content"
                         app:counterEnabled="true"
                         app:counterMaxLength="1000"
-                        android:hint="Resolution Note">
+                        android:hint="@string/resolution_note">
 
                         <!--this is the actual edit text which takes the input-->
                         <com.google.android.material.textfield.TextInputEditText
@@ -314,7 +314,7 @@
                             android:padding="10dp"
                             android:maxLength="1000"
                             android:scrollbars="vertical"
-                            android:text=" "/>
+                            android:text=""/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 

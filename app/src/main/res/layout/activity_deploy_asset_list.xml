@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             app:hintTextColor="@color/color_green_dark"
-            android:hint="Asset Classification">
+            android:hint="@string/asset_classification">
 
             <!--this is the actual edit text which takes the input-->
             <androidx.appcompat.widget.AppCompatAutoCompleteTextView

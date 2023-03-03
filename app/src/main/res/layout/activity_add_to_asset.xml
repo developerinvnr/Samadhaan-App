@@ -256,7 +256,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Asset Classification">
+                    android:hint="@string/asset_classification">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -310,7 +310,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Asset">
+                    android:hint="@string/asset">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -392,7 +392,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="New Asset Quantity">
+                    android:hint="@string/new_asset_quantity">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -600,7 +600,7 @@
                     android:layout_weight="1"
                     android:visibility="visible"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Primary Location">
+                    android:hint="@string/primary_location">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -633,7 +633,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    android:hint="Secondary Location">
+                    android:hint="@string/secondary_location">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -654,7 +654,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:hint="Storage Type">
+                    android:hint="@string/storage_type">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView

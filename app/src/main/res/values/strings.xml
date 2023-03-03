@@ -16,9 +16,9 @@
     <string name="add_asset">Add Asset</string>
     <string name="asset_list">Asset List</string>
     <string name="edit_asset">Edit Asset</string>
-    <string name="asset_category">Asset Category</string>
+    <string name="asset_category">Asset Category<font color="#FF0000" > *</font></string>
     <string name="primary_information">Primary Information</string>
-    <string name="asset_type">Asset Type</string>
+    <string name="asset_type">Asset Type<font color="#FF0000" > *</font></string>
     <string name="cpu_brand">CPU Brand</string>
     <string name="cpu_model">CPU Model</string>
     <string name="cpu_serial_no">CPU Serial No.</string>
@@ -48,13 +48,13 @@
     <string name="keyboard_warranty_upto">Keyboard Warranty Up to</string>
     <string name="mouse_warranty_upto">Mouse Warranty Up to</string>
     <string name="price">Price</string>
-    <string name="vendor">Vendor</string>
+    <string name="vendor">Vendor<font color="#FF0000" > *</font></string>
     <string name="deployment_information">Deployment Information</string>
-    <string name="intallation_date">Intallation Date</string>
-    <string name="installation_location">Installation Location</string>
-    <string name="department">Department</string>
-    <string name="section">Section</string>
-    <string name="custodian">Custodian</string>
+    <string name="intallation_date">Intallation Date<font color="#FF0000" > *</font></string>
+    <string name="installation_location">Installation Location<font color="#FF0000" > *</font></string>
+    <string name="department">Department<font color="#FF0000" > *</font></string>
+    <string name="section">Section<font color="#FF0000" > *</font></string>
+    <string name="custodian">Custodian<font color="#FF0000" > *</font></string>
     <string name="network_information">Network Information</string>
     <string name="network_type">Network Type</string>
     <string name="mac_address_ethernet">Ethernet MAC Address</string>
@@ -73,9 +73,9 @@
     <string name="other_software">Other Softwares</string>
     <string name="submit">Submit</string>
     <string name="update">Update</string>
-    <string name="brand">Brand</string>
-    <string name="model">Model</string>
-    <string name="serial_no">Serial No.</string>
+    <string name="brand">Brand<font color="#FF0000" > *</font></string>
+    <string name="model">Model<font color="#FF0000" > *</font></string>
+    <string name="serial_no">Serial Number<font color="#FF0000" > *</font></string>
     <string name="alert_exit">Do you want to exit?</string>
     <string name="confirmVisit_message">Are you sure? You want to confirm your scheduled visit?</string>
     <string name="invoice_no">Invoice No.</string>
@@ -102,7 +102,7 @@
     <string name="software">Software</string>
     <string name="profile">Profile</string>
     <string name="deploy_asset">Deploy Asset</string>
-    <string name="select_category">Category</string>
+    <string name="select_category">Category<font color="#FF0000" > *</font></string>
     <string name="precise_location">Precise Location</string>
     <string name="app_version">App Version : </string>
     <string name="title_activity_change_password">ChangePasswordActivity</string>
@@ -114,4 +114,44 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="asset_classification">Asset Classification<font color="#FF0000" > *</font></string>
+    <string name="asset">Asset<font color="#FF0000" > *</font></string>
+    <string name="new_asset_quantity">New Asset Quantity<font color="#FF0000" > *</font></string>
+    <string name="primary_location">Primary Location<font color="#FF0000" > *</font></string>
+    <string name="secondary_location">Secondary Location<font color="#FF0000" > *</font></string>
+    <string name="storage_type">Storage Type<font color="#FF0000" > *</font></string>
+    <string name="comment_note">Comment/Note<font color="#FF0000" > *</font></string>
+    <string name="estimated_date_to_resolve">Estimated date to resolve<font color="#FF0000" > *</font></string>
+    <string name="estimated_time_to_resolve">Estimated time to resolve<font color="#FF0000" > *</font></string>
+    <string name="assign_to">Assign To<font color="#FF0000" > *</font></string>
+    <string name="priority">Priority<font color="#FF0000" > *</font></string>
+    <string name="select_issue">Select issue<font color="#FF0000" > *</font></string>
+    <string name="enter_issue">Enter Issue<font color="#FF0000" > *</font></string>
+    <string name="from_workshop">From Workshop<font color="#FF0000" > *</font></string>
+    <string name="send_to">Send to<font color="#FF0000" > *</font></string>
+    <string name="mode_of_transfer">Mode of transfer<font color="#FF0000" > *</font></string>
+    <string name="packing_type">Packing Type<font color="#FF0000" > *</font></string>
+    <string name="quantity">Quantity<font color="#FF0000" > *</font></string>
+    <string name="receive_note">Receive Note<font color="#FF0000" > *</font></string>
+    <string name="cancel_note">Cancel Note<font color="#FF0000" > *</font></string>
+    <string name="dispatch_from">Dispatch from<font color="#FF0000" > *</font></string>
+    <string name="dispatch_to">Dispatch to<font color="#FF0000" > *</font></string>
+    <string name="closure_note">Closure Note<font color="#FF0000" > *</font></string>
+    <string name="diagnosis_notes">Diagnosis Notes<font color="#FF0000" > *</font></string>
+    <string name="cr_closure_remarks_for_user">CR Closure Remarks for User<font color="#FF0000" > *</font></string>
+    <string name="cr_description">CR Description<font color="#FF0000" > *</font></string>
+    <string name="resolution_note">Resolution Note<font color="#FF0000" > *</font></string>
+    <string name="visit_date">Visit Date<font color="#FF0000" > *</font></string>
+    <string name="subject">Subject<font color="#FF0000" > *</font></string>
+    <string name="description">Description<font color="#FF0000" > *</font></string>
+    <string name="affected_from_date">Affected from date<font color="#FF0000" > *</font></string>
+    <string name="affected_from_time">Affected from time<font color="#FF0000" > *</font></string>
+    <string name="affected_to_date">Affected to date<font color="#FF0000" > *</font></string>
+    <string name="affected_to_time">Affected to time<font color="#FF0000" > *</font></string>
+    <string name="visible_from_date">Visible from date<font color="#FF0000" > *</font></string>
+    <string name="visible_from_time">Visible from time<font color="#FF0000" > *</font></string>
+    <string name="visible_to_date">Visible to date<font color="#FF0000" > *</font></string>
+    <string name="visible_to_time">Visible to time<font color="#FF0000" > *</font></string>
+    <string name="cr_title">CR Title<font color="#FF0000" > *</font></string>
+    <string name="withdraw_reason">Withdrawal Reason<font color="#FF0000" > *</font></string>
 </resources>

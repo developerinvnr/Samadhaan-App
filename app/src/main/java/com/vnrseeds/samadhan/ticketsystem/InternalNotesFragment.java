@@ -233,29 +233,26 @@ public class InternalNotesFragment extends Fragment {
                 tv_astype.setText(ticketDetailsPojo.getServiceType());
                 tv_assignto.setText(ticketDetailsPojo.getAssignTo());
 
-                if (ticketDetailsPojo.getTicketSiteVisitDate()!=null){
-                    //tv_visitdate.setText(ticketDetailsPojo.getTicketSiteVisitDate());
-                    tv_ticketStatus.setText("Visit");
-                }else {
-                    if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Open")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#FFCA43"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Assigned")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#3f51b5"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Diagnosis")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Work in Progress")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#519F40"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#837D8C"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#00BCD4"));
-                    }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Reopen")){
-                        tv_ticketStatus.setBackgroundColor(Color.parseColor("#FC39AE"));
-                    }
-                    tv_ticketStatus.setText(ticketDetailsPojo.getTicketStatus());
+
+                if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Open")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FFCA43"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Assigned")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#3f51b5"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Diagnosis")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Work in Progress")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#519F40"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#837D8C"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#00BCD4"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Reopen")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FC39AE"));
                 }
+                tv_ticketStatus.setText(ticketDetailsPojo.getTicketStatus());
+
 
                 if (ticketDetailsPojo.getPriority().equalsIgnoreCase("High")){
                     tv_priority.setTextColor(Color.parseColor("#FE5247"));

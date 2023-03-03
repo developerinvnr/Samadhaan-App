@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Location">
+                    android:hint="@string/installation_location">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -114,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Department">
+                    android:hint="@string/department">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -144,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="User">
+                    android:hint="@string/custodian">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Brand">
+                    android:hint="@string/brand">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -202,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Model">
+                    android:hint="@string/model">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -231,7 +231,7 @@
                     app:counterEnabled="true"
                     app:counterMaxLength="50"
                     android:textColorHint="#435E3D"
-                    android:hint="Serial Number">
+                    android:hint="@string/serial_no">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -240,7 +240,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/text"
                         android:maxLength="50"
-                        android:text=" "/>
+                        android:text=""/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -268,7 +268,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/text"
                         android:maxLength="100"
-                        android:text=" "/>
+                        android:text=""/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

@@ -84,7 +84,7 @@
                     android:padding="10dp"
                     android:maxLength="500"
                     android:scrollbars="vertical"
-                    android:text=" "/>
+                    android:text=""/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextColor="@color/color_green_dark"
-                android:hint="Assign To">
+                android:hint="@string/assign_to">
 
                 <!--this is the actual edit text which takes the input-->
                 <androidx.appcompat.widget.AppCompatAutoCompleteTextView

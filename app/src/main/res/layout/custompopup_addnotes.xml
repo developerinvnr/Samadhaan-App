@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 app:counterEnabled="true"
                 app:counterMaxLength="500"
-                android:hint="Comment/Note">
+                android:hint="@string/comment_note">
 
                 <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
@@ -83,7 +83,7 @@
                     android:padding="10dp"
                     android:maxLength="500"
                     android:scrollbars="vertical"
-                    android:text=" "/>
+                    android:text=""/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

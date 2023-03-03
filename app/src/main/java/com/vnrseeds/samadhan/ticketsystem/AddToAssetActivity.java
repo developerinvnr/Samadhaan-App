@@ -776,7 +776,7 @@ public class AddToAssetActivity extends AppCompatActivity {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
         customProgressDialogue.show();
         Call<RemovableAssetsResponse> call = apiInterface.getRemovableAssets("application/json", "Bearer "+token, ticket_service_type_id);
-        Log.e(TAG, token+"====="+ticket_service_type_id);
+        //Log.e(TAG, token+"====="+ticket_service_type_id);
         call.enqueue(new Callback<RemovableAssetsResponse>() {
             @SuppressLint("SetTextI18n")
             @Override

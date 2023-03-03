@@ -217,7 +217,7 @@ public class AddUserNotesFragment extends Fragment implements TicketViewAdapter.
                 button_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String message = et_message.getText().toString();
+                        String message = et_message.getText().toString().trim();
                         if (message.equalsIgnoreCase("")){
                             Toast.makeText(getActivity(), "Enter message", Toast.LENGTH_LONG).show();
                         }else {

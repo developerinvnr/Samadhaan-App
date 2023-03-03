@@ -151,9 +151,26 @@ public class ITNListActivity extends AppCompatActivity implements ITNListAdapter
                     startActivity(intent);
                     finish();
                 }else {
-                    Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                    if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                        Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                        Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                        Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Intent intent = new Intent(ITNListActivity.this, TicketHandlingUserActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    /*Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }
             }
         });
@@ -508,14 +525,14 @@ public class ITNListActivity extends AppCompatActivity implements ITNListAdapter
         ll_issuephoto = dialog.findViewById(R.id.ll_issuephoto);
         iv_issuephoto = dialog.findViewById(R.id.iv_issuephoto);
         tv_lastlot.setText("Cancel ITN");
-        til_lable.setHint("Cancel Note");
+        til_lable.setHint(R.string.cancel_note);
 
         tv_issuephoto.setVisibility(View.GONE);
         ll_issuephoto.setVisibility(View.GONE);
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = et_message.getText().toString();
+                String message = et_message.getText().toString().trim();
                 if (message.equalsIgnoreCase("")){
                     Toast.makeText(ITNListActivity.this, "Enter message", Toast.LENGTH_LONG).show();
                 }else {
@@ -576,7 +593,6 @@ public class ITNListActivity extends AppCompatActivity implements ITNListAdapter
     }
 
     private class DownloadFile extends AsyncTask<String, Void, Void> {
-
         @Override
         protected Void doInBackground(String... strings) {
             String fileUrl = strings[0];   // -> http://maven.apache.org/maven-1.x/maven.pdf
@@ -604,9 +620,26 @@ public class ITNListActivity extends AppCompatActivity implements ITNListAdapter
             startActivity(intent);
             finish();
         }else {
-            Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+            if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else {
+                Intent intent = new Intent(ITNListActivity.this, TicketHandlingUserActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            /*Intent intent = new Intent(ITNListActivity.this, TicketHandlingActivity.class);
             startActivity(intent);
-            finish();
+            finish();*/
         }
     }
 }

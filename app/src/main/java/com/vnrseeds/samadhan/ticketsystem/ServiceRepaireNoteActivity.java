@@ -242,9 +242,26 @@ public class ServiceRepaireNoteActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }else {
-                Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                    Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                    Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                    Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingUserActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                /*Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
 
@@ -544,9 +561,26 @@ public class ServiceRepaireNoteActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else {
-            Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+            if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else {
+                Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingUserActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            /*Intent intent = new Intent(ServiceRepaireNoteActivity.this, TicketHandlingActivity.class);
             startActivity(intent);
-            finish();
+            finish();*/
         }
     }
 }

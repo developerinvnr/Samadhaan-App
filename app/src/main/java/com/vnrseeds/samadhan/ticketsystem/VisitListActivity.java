@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.vnrseeds.samadhan.R;
 import com.vnrseeds.samadhan.adapter.VisitListAdapter;
 import com.vnrseeds.samadhan.communicator.DateCommunicator;
@@ -429,10 +430,10 @@ public class VisitListActivity extends AppCompatActivity implements VisitListAda
         ImageView iv_close = dialog.findViewById(R.id.iv_close);
         TextView tv_lastlot = dialog.findViewById(R.id.tv_lastlot);
         TextView tv_issuephoto = dialog.findViewById(R.id.tv_issuephoto);
-        TextView tv_lable = dialog.findViewById(R.id.tv_lable);
+        TextInputLayout til_lable = dialog.findViewById(R.id.til_lable);
         LinearLayout ll_issuephoto = dialog.findViewById(R.id.ll_issuephoto);
         tv_lastlot.setText("Cancel Visit");
-        tv_lable.setText("Cancel Note");
+        til_lable.setHint("Cancel Note");
 
         tv_issuephoto.setVisibility(View.GONE);
         ll_issuephoto.setVisibility(View.GONE);
@@ -524,9 +525,26 @@ public class VisitListActivity extends AppCompatActivity implements VisitListAda
             startActivity(intent);
             finish();
         }else {
-            Intent intent = new Intent(VisitListActivity.this, TicketHandlingActivity.class);
+            if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                Intent intent = new Intent(VisitListActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                Intent intent = new Intent(VisitListActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                Intent intent = new Intent(VisitListActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else {
+                Intent intent = new Intent(VisitListActivity.this, TicketHandlingUserActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            /*Intent intent = new Intent(VisitListActivity.this, TicketHandlingActivity.class);
             startActivity(intent);
-            finish();
+            finish();*/
         }
     }
 }

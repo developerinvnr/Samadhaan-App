@@ -717,13 +717,14 @@ public class RaiseTicketActivity extends AppCompatActivity {
         customProgressDialogue.show();
         Call<SubModuleListResponse> call = apiInterface.getSubModuleDataInfo("application/json", "Bearer " + token, classification_id);
         call.enqueue(new Callback<SubModuleListResponse>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(@NonNull Call<SubModuleListResponse> call, @NonNull Response<SubModuleListResponse> response) {
                 if (response.isSuccessful()) {
                     customProgressDialogue.cancel();
                     SubModuleListResponse subModuleListResponse = response.body();
                     assert subModuleListResponse != null;
-
+                    spinner_subClassification.setText("Select");
                     subClassifications = subModuleListResponse.getData();
                     subClassificationsList.clear();
                     if (!subClassifications.isEmpty()) {

@@ -194,7 +194,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estimated date to resolve"
+                android:text="@string/estimated_date_to_resolve"
                 android:textAppearance="@style/desktop"/>
 
             <TextView
@@ -219,7 +219,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estimated time to resolve"
+                android:text="@string/estimated_time_to_resolve"
                 android:textAppearance="@style/desktop"/>
 
             <TextView

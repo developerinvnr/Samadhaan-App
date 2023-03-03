@@ -41,6 +41,7 @@ import com.vnrseeds.samadhan.parser.seviceproviderlistparser.ServiceProviderList
 import com.vnrseeds.samadhan.parser.seviceproviderlistparser.User;
 import com.vnrseeds.samadhan.parser.submitsuccessparser.SubmitSuccessResponse;
 import com.vnrseeds.samadhan.parser.ticketslistparser.TicketDetailsPojo;
+import com.vnrseeds.samadhan.parser.ticketviewparser.ParentTicket;
 import com.vnrseeds.samadhan.parser.ticketviewparser.RaiseData;
 import com.vnrseeds.samadhan.parser.ticketviewparser.TicketViewResponse;
 import com.vnrseeds.samadhan.retrofit.ApiInterface;
@@ -115,6 +116,8 @@ public class DetailsFragment extends Fragment {
     private LinearLayout ll_subClassification;
     private TextView tv_classification;
     private TextView tv_subClassification;
+    private ParentTicket parentTicketData;
+    private TextView tv_parentTicket;
 
     public DetailsFragment() {
         // Required empty public constructor
@@ -174,6 +177,7 @@ public class DetailsFragment extends Fragment {
         ll_subClassification = view.findViewById(R.id.ll_subClassification);
         tv_classification = view.findViewById(R.id.tv_classification);
         tv_subClassification = view.findViewById(R.id.tv_subClassification);
+        tv_parentTicket = view.findViewById(R.id.tv_parentTicket);
 
         ticketDetailsPojo = (TicketDetailsPojo) SharedPreferences.getInstance().getObject(SharedPreferences.KEY_TICKET_OBJ, TicketDetailsPojo.class);
         tv_ticket_desc.setText(ticketDetailsPojo.getIssueDesc());
@@ -342,9 +346,11 @@ public class DetailsFragment extends Fragment {
             if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed") || ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw")){
                 ll_buttons.setVisibility(View.GONE);
             }else {
-                if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")){
+                if (roleResponse.getData().contains("HARDWARE_ENGINEER") && roleResponse.getData().contains("NETWORK_ENGINEER") && roleResponse.getData().contains("SOFTWARE_ENGINEER")){
+                    ll_buttons.setVisibility(View.VISIBLE);
+                }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")){
                     ll_buttons.setVisibility(View.GONE);
-                }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")){
+                }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") && roleResponse.getData().contains("NETWORK_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")){
                     ll_buttons.setVisibility(View.GONE);
                 }else {
                     ll_buttons.setVisibility(View.VISIBLE);
@@ -391,6 +397,85 @@ public class DetailsFragment extends Fragment {
                 } else {
                     ll_assignto.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        tv_parentTicket.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.custompopup_ticket_details);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.CENTER;
+                dialog.getWindow().setAttributes(lp);
+                dialog.show();
+
+                ImageView iv_close = dialog.findViewById(R.id.iv_close);
+                TextView tv_ticketID = dialog.findViewById(R.id.tv_ticketID);
+                TextView tv_ticketdate = dialog.findViewById(R.id.tv_ticketdate);
+                TextView tv_priority = dialog.findViewById(R.id.tv_priority);
+                TextView tv_ticket_title = dialog.findViewById(R.id.tv_ticket_title);
+                TextView tv_ticket_desc = dialog.findViewById(R.id.tv_ticket_desc);
+                TextView tv_custodian = dialog.findViewById(R.id.tv_custodian);
+                TextView tv_ticketStatus = dialog.findViewById(R.id.tv_ticketStatus);
+                TextView tv_category = dialog.findViewById(R.id.tv_category);
+                TextView tv_astype = dialog.findViewById(R.id.tv_astype);
+                TextView tv_assignto = dialog.findViewById(R.id.tv_assignto);
+                tv_ticketID.setText("Ticket "+parentTicketData.getTicketCode());
+                tv_ticketdate.setText(parentTicketData.getTicketRaiseDate());
+                tv_priority.setText(ticketDetailsPojo.getPriority());
+                if (parentTicketData.getIssueName()!=null){
+                    tv_ticket_title.setText(parentTicketData.getIssueName());
+                }else {
+                    tv_ticket_title.setText(parentTicketData.getTicketIssueOther());
+                }
+                tv_ticket_desc.setText(parentTicketData.getTicketDescription());
+                tv_custodian.setText(parentTicketData.getRaiseBy());
+                tv_ticketStatus.setText(parentTicketData.getTicketStatus());
+                tv_category.setText(parentTicketData.getTicketServiceTypeName());
+                tv_astype.setText(parentTicketData.getTicketServiceType());
+                tv_assignto.setText(parentTicketData.getAssignTo());
+
+                /*if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Open")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FFCA43"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Assigned")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#3f51b5"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Diagnosis")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Work in Progress")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Resolved")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#519F40"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Closed")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#837D8C"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Withdraw")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#00BCD4"));
+                }else if (ticketDetailsPojo.getTicketStatus().equalsIgnoreCase("Reopen")){
+                    tv_ticketStatus.setBackgroundColor(Color.parseColor("#FC39AE"));
+                }*/
+                tv_ticketStatus.setText("Splitted");
+
+
+                if (ticketDetailsPojo.getPriority().equalsIgnoreCase("High")){
+                    tv_priority.setTextColor(Color.parseColor("#FE5247"));
+                }else if (ticketDetailsPojo.getPriority().equalsIgnoreCase("Critical")){
+                    tv_priority.setTextColor(Color.parseColor("#FF1C1C"));
+                }else if (ticketDetailsPojo.getPriority().equalsIgnoreCase("Medium")){
+                    tv_priority.setTextColor(Color.parseColor("#FF8744"));
+                }else if (ticketDetailsPojo.getPriority().equalsIgnoreCase("Low")){
+                    tv_priority.setTextColor(Color.parseColor("#8FFF36"));
+                }
+
+                iv_close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.cancel();
+                    }
+                });
             }
         });
 
@@ -601,9 +686,9 @@ public class DetailsFragment extends Fragment {
                 button_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String message = et_message.getText().toString();
-                        String resdate = expected_resdate.getText().toString();
-                        String restime = expected_restime.getText().toString();
+                        String message = et_message.getText().toString().trim();
+                        String resdate = expected_resdate.getText().toString().trim();
+                        String restime = expected_restime.getText().toString().trim();
                         if (resdate.equalsIgnoreCase("")){
                             Toast.makeText(getActivity(), "Select estimated resolution date", Toast.LENGTH_LONG).show();
                         }else if (restime.equalsIgnoreCase("")){
@@ -637,6 +722,16 @@ public class DetailsFragment extends Fragment {
                     TicketViewResponse ticketViewResponse = response.body();
                     assert ticketViewResponse != null;
                     ticketData = ticketViewResponse.getData().getRaiseData();
+                    parentTicketData = ticketViewResponse.getData().getParentTicket();
+                    if (parentTicketData!=null){
+                        if (parentTicketData.getTicketId()!= null) {
+                            tv_parentTicket.setVisibility(View.VISIBLE);
+                        }else {
+                            tv_parentTicket.setVisibility(View.GONE);
+                        }
+                    }else {
+                        tv_parentTicket.setVisibility(View.GONE);
+                    }
 
                 }else {
                     customProgressDialogue.cancel();

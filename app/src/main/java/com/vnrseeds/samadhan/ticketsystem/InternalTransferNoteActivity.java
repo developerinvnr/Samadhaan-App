@@ -221,7 +221,7 @@ public class InternalTransferNoteActivity extends AppCompatActivity {
             ll_itnFor.setVisibility(View.GONE);
             itnFor="User";
             sendTo="Workshop";
-            il_fromWorkshop.setHint("Dispatch to");
+            il_fromWorkshop.setHint(R.string.dispatch_to);
             //tv_sendToDetails.setVisibility(View.GONE);
             //tv_sendTo.setVisibility(View.GONE);
             tv_sendTo.setText("Dispatch from");
@@ -230,7 +230,7 @@ public class InternalTransferNoteActivity extends AppCompatActivity {
         }else{
             itnFor="Self";
             sendTo="User";
-            il_fromWorkshop.setHint("Dispatch from");
+            il_fromWorkshop.setHint(R.string.dispatch_from);
             il_serviceProvider.setVisibility(View.GONE);
             tv_sendToDetails.setVisibility(View.VISIBLE);
             tv_sendTo.setVisibility(View.VISIBLE);
@@ -280,9 +280,26 @@ public class InternalTransferNoteActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }else {
-                Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                    Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                    Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                    Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingUserActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                /*Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
 
         });
@@ -544,9 +561,23 @@ public class InternalTransferNoteActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else {
-            Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
-            startActivity(intent);
-            finish();
+            if ((roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Hardware")) {
+                Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("SOFTWARE_ENGINEER") && ticketDetailsPojo.getServiceType().equalsIgnoreCase("Software")) {
+                Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER") || roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingActivity.class);
+                startActivity(intent);
+                finish();
+            }else {
+                Intent intent = new Intent(InternalTransferNoteActivity.this, TicketHandlingUserActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
     }
 

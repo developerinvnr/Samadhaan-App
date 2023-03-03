@@ -84,13 +84,33 @@
             android:layout_marginTop="10dp"
             android:background="@color/lightCard" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:layout_marginTop="16dp"
-            android:textAppearance="@style/desktop12sp"
-            android:text="Details" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_weight="1"
+                android:textAppearance="@style/desktop12sp"
+                android:text="Details" />
+
+            <TextView
+                android:id="@+id/tv_parentTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:visibility="gone"
+                android:textAppearance="@style/ticket_for"
+                android:textColor="@color/color_blue"
+                android:text="Click for parent ticket information..." />
+
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

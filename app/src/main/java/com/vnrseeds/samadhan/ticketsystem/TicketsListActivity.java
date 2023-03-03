@@ -269,9 +269,18 @@ public class TicketsListActivity extends AppCompatActivity implements TicketsLis
                 startActivity(intent);
                 finish();
             } else {
-                Intent intent = new Intent(TicketsListActivity.this, TicketHandlingActivity.class);
+                if (roleResponse.getData().contains("HARDWARE_ENGINEER") || roleResponse.getData().contains("NETWORK_ENGINEER")) {
+                    Intent intent = new Intent(TicketsListActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Intent intent = new Intent(TicketsListActivity.this, TicketHandlingUserActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                /*Intent intent = new Intent(TicketsListActivity.this, TicketHandlingActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         }
     }
@@ -350,7 +359,7 @@ public class TicketsListActivity extends AppCompatActivity implements TicketsLis
             TextInputLayout til_lable = dialog.findViewById(R.id.til_lable);
             CheckBox cb_show_to_user = dialog.findViewById(R.id.cb_show_to_user);
             tv_lastlot.setText("Withdraw Ticket");
-            til_lable.setHint("Withdrawal Reason");
+            til_lable.setHint(R.string.withdraw_reason);
             cb_show_to_user.setVisibility(View.GONE);
             button_add.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -435,9 +444,15 @@ public class TicketsListActivity extends AppCompatActivity implements TicketsLis
                 startActivity(intent);
                 finish();
             } else {
-                Intent intent = new Intent(TicketsListActivity.this, TicketHandlingActivity.class);
-                startActivity(intent);
-                finish();
+                if (roleResponse.getData().contains("SOFTWARE_ENGINEER")) {
+                    Intent intent = new Intent(TicketsListActivity.this, TicketHandlingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Intent intent = new Intent(TicketsListActivity.this, TicketHandlingUserActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
     }

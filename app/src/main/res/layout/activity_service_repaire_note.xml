@@ -230,7 +230,7 @@
                     android:layout_weight="1"
                     android:visibility="visible"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Dispatch from">
+                    android:hint="@string/dispatch_from">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -306,7 +306,7 @@
                     android:layout_weight="1"
                     android:visibility="visible"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Vendor">
+                    android:hint="@string/vendor">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -410,7 +410,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintTextColor="@color/color_green_dark"
-                    android:hint="Mode of transfer">
+                    android:hint="@string/mode_of_transfer">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -683,7 +683,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    android:hint="Packing Type">
+                    android:hint="@string/packing_type">
 
                     <!--this is the actual edit text which takes the input-->
                     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
@@ -704,7 +704,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:hint="Quantity">
+                    android:hint="@string/quantity">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -716,7 +716,7 @@
                         android:maxLength="2"
                         android:gravity="top|start"
                         android:scrollbars="vertical"
-                        android:text="0"/>
+                        android:text=""/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -741,7 +741,7 @@
                     android:gravity="top|start"
                     android:maxLength="200"
                     android:scrollbars="vertical"
-                    android:text=" "/>
+                    android:text=""/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

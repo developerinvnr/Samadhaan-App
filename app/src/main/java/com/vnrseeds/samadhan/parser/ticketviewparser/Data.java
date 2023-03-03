@@ -25,6 +25,9 @@ public class Data {
     @SerializedName("ticket_files")
     @Expose
     private List<String> ticketFiles;
+    @SerializedName("parentTicket")
+    @Expose
+    private ParentTicket parentTicket;
 
     public RaiseData getRaiseData() {
         return raiseData;
@@ -74,5 +77,11 @@ public class Data {
         this.ticketFiles = ticketFiles;
     }
 
+    public ParentTicket getParentTicket() {
+        return parentTicket;
+    }
 
+    public void setParentTicket(ParentTicket parentTicket) {
+        this.parentTicket = parentTicket;
+    }
 }

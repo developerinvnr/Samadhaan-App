@@ -368,7 +368,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:hintTextColor="@color/color_green_dark"
-                        android:hint="Priority">
+                        android:hint="@string/priority">
 
                         <!--this is the actual edit text which takes the input-->
                         <AutoCompleteTextView
@@ -457,7 +457,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/spinner_background"
-                        android:hint="Select issue"
+                        android:hint="@string/select_issue"
                         android:textAppearance="@style/text"
                         android:visibility="visible"
                         android:padding="16dp" />
@@ -472,7 +472,7 @@
                         app:counterEnabled="true"
                         app:counterMaxLength="200"
                         android:layout_weight="1"
-                        android:hint="Other Issue">
+                        android:hint="@string/enter_issue">
 
                         <!--this is the actual edit text which takes the input-->
                         <com.google.android.material.textfield.TextInputEditText
